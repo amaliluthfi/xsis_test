@@ -90,17 +90,15 @@ class DetailDialog extends StatelessWidget {
                                       progressIndicatorColor: Colors.blueAccent,
                                       topActions: <Widget>[
                                         const SpaceW8(),
-                                        Expanded(
-                                          child: Text(
-                                            detailController
-                                                .ytController.metadata.title,
-                                            style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 18.0,
-                                            ),
-                                            overflow: TextOverflow.ellipsis,
-                                            maxLines: 1,
+                                        Text(
+                                          detailController
+                                              .ytController.metadata.title,
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18.0,
                                           ),
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 1,
                                         ),
                                       ],
                                       onReady: () {
@@ -182,47 +180,45 @@ class DetailDialog extends StatelessWidget {
                               const SpaceH8(),
                               SizedBox(
                                 height: 200,
-                                child: Expanded(
-                                  child: ListView.builder(
-                                      scrollDirection: Axis.horizontal,
-                                      shrinkWrap: true,
-                                      itemCount: controller.latestMovies.length,
-                                      itemBuilder: (context, index) {
-                                        Result item =
-                                            controller.latestMovies[index];
-                                        return Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Get.back();
-                                              showAdaptiveDialog(
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return Dialog(
-                                                      insetPadding:
-                                                          const EdgeInsets.all(
-                                                              16),
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          16)),
-                                                      child: DetailDialog(
-                                                        item: item,
-                                                        imageUrl:
-                                                            controller.imageUrl,
-                                                      ),
-                                                    );
-                                                  });
-                                            },
-                                            child: MovieLandscapeCard(
-                                                item: item,
-                                                imageUrl: controller.imageUrl),
-                                          ),
-                                        );
-                                      }),
-                                ),
+                                child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    shrinkWrap: true,
+                                    itemCount: controller.latestMovies.length,
+                                    itemBuilder: (context, index) {
+                                      Result item =
+                                          controller.latestMovies[index];
+                                      return Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            Get.back();
+                                            showAdaptiveDialog(
+                                                context: context,
+                                                builder: (context) {
+                                                  return Dialog(
+                                                    insetPadding:
+                                                        const EdgeInsets.all(
+                                                            16),
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        16)),
+                                                    child: DetailDialog(
+                                                      item: item,
+                                                      imageUrl:
+                                                          controller.imageUrl,
+                                                    ),
+                                                  );
+                                                });
+                                          },
+                                          child: MovieLandscapeCard(
+                                              item: item,
+                                              imageUrl: controller.imageUrl),
+                                        ),
+                                      );
+                                    }),
                               ),
                             ],
                           ),

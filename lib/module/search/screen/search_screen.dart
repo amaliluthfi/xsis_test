@@ -47,51 +47,49 @@ class SearchScreen extends StatelessWidget {
             body: CustomScrollView(
               controller: controller.scrollController,
               slivers: [
-                Expanded(
-                  child: SliverGrid(
-                    delegate: SliverChildBuilderDelegate(
-                        childCount: controller.isLoading
-                            ? 10
-                            : controller.searchResult.length, (context, index) {
-                      if (!controller.isLoading) {
-                        Result item = controller.searchResult[index];
-                        return GestureDetector(
-                          onTap: () {
-                            showAdaptiveDialog(
-                                context: context,
-                                builder: (context) {
-                                  return Dialog(
-                                    insetPadding: const EdgeInsets.all(16),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(16)),
-                                    child: DetailDialog(
-                                      item: item,
-                                      imageUrl: controller.imageUrl,
-                                    ),
-                                  );
-                                });
-                          },
-                          child: MoviePortraitCard(
-                              item: item, imageUrl: controller.imageUrl),
-                        );
-                      } else {
-                        return const Padding(
-                          padding: EdgeInsets.all(16.0),
-                          child: LoadingBar(
-                            width: 280,
-                            height: 400,
-                          ),
-                        );
-                      }
-                    }),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            mainAxisSpacing: 10,
-                            crossAxisSpacing: 10,
-                            crossAxisCount: 2,
-                            childAspectRatio: 3 / 4),
-                  ),
+                SliverGrid(
+                  delegate: SliverChildBuilderDelegate(
+                      childCount: controller.isLoading
+                          ? 10
+                          : controller.searchResult.length, (context, index) {
+                    if (!controller.isLoading) {
+                      Result item = controller.searchResult[index];
+                      return GestureDetector(
+                        onTap: () {
+                          showAdaptiveDialog(
+                              context: context,
+                              builder: (context) {
+                                return Dialog(
+                                  insetPadding: const EdgeInsets.all(16),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(16)),
+                                  child: DetailDialog(
+                                    item: item,
+                                    imageUrl: controller.imageUrl,
+                                  ),
+                                );
+                              });
+                        },
+                        child: MoviePortraitCard(
+                            item: item, imageUrl: controller.imageUrl),
+                      );
+                    } else {
+                      return const Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child: LoadingBar(
+                          width: 280,
+                          height: 400,
+                        ),
+                      );
+                    }
+                  }),
+                  gridDelegate:
+                      const SliverGridDelegateWithFixedCrossAxisCount(
+                          mainAxisSpacing: 10,
+                          crossAxisSpacing: 10,
+                          crossAxisCount: 2,
+                          childAspectRatio: 3 / 4),
                 ),
                 SliverList(
                   delegate: SliverChildListDelegate(

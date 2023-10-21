@@ -13,6 +13,8 @@ class AppNetwork {
         "Authorization": "Bearer $apiKey",
         "accept": "application/json"
       });
+
+      print("ini internet ${res.body}");
       if (res.statusCode == 200) {
         return res.body;
       } else {

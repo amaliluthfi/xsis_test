@@ -125,46 +125,41 @@ class _MyHomePageState extends State<MyHomePage> {
                             const SpaceH8(),
                             SizedBox(
                               height: 200,
-                              child: Expanded(
-                                child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    shrinkWrap: true,
-                                    itemCount: controller.latestMovies.length,
-                                    itemBuilder: (context, index) {
-                                      Result item =
-                                          controller.latestMovies[index];
-                                      return Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            showAdaptiveDialog(
-                                                context: context,
-                                                builder: (context) {
-                                                  return Dialog(
-                                                    insetPadding:
-                                                        const EdgeInsets.all(
-                                                            16),
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        16)),
-                                                    child: DetailDialog(
-                                                      item: item,
-                                                      imageUrl:
-                                                          controller.imageUrl,
-                                                    ),
-                                                  );
-                                                });
-                                          },
-                                          child: MovieLandscapeCard(
-                                              item: item,
-                                              imageUrl: controller.imageUrl),
-                                        ),
-                                      );
-                                    }),
-                              ),
+                              child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  shrinkWrap: true,
+                                  itemCount: controller.latestMovies.length,
+                                  itemBuilder: (context, index) {
+                                    Result item =
+                                        controller.latestMovies[index];
+                                    return Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          showAdaptiveDialog(
+                                              context: context,
+                                              builder: (context) {
+                                                return Dialog(
+                                                  insetPadding:
+                                                      const EdgeInsets.all(16),
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16)),
+                                                  child: DetailDialog(
+                                                    item: item,
+                                                    imageUrl:
+                                                        controller.imageUrl,
+                                                  ),
+                                                );
+                                              });
+                                        },
+                                        child: MovieLandscapeCard(
+                                            item: item,
+                                            imageUrl: controller.imageUrl),
+                                      ),
+                                    );
+                                  }),
                             ),
                           ],
                         ),
@@ -191,59 +186,57 @@ class _MyHomePageState extends State<MyHomePage> {
                             const SpaceH8(),
                             SizedBox(
                               height: 300,
-                              child: Expanded(
-                                child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    shrinkWrap: true,
-                                    itemCount: controller.actionMovies.length,
-                                    itemBuilder: (context, index) {
-                                      Result item =
-                                          controller.actionMovies[index];
-                                      return Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: InkWell(
-                                          onTap: () => Dialog(
-                                            insetPadding:
-                                                const EdgeInsets.all(16),
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(16)),
-                                            child: DetailDialog(
-                                              item: item,
-                                              imageUrl: controller.imageUrl,
-                                            ),
-                                          ),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              showAdaptiveDialog(
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return Dialog(
-                                                      insetPadding:
-                                                          const EdgeInsets.all(
-                                                              16),
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          16)),
-                                                      child: DetailDialog(
-                                                        item: item,
-                                                        imageUrl:
-                                                            controller.imageUrl,
-                                                      ),
-                                                    );
-                                                  });
-                                            },
-                                            child: MoviePortraitCard(
-                                                item: item,
-                                                imageUrl: controller.imageUrl),
+                              child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  shrinkWrap: true,
+                                  itemCount: controller.actionMovies.length,
+                                  itemBuilder: (context, index) {
+                                    Result item =
+                                        controller.actionMovies[index];
+                                    return Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: InkWell(
+                                        onTap: () => Dialog(
+                                          insetPadding:
+                                              const EdgeInsets.all(16),
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(16)),
+                                          child: DetailDialog(
+                                            item: item,
+                                            imageUrl: controller.imageUrl,
                                           ),
                                         ),
-                                      );
-                                    }),
-                              ),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            showAdaptiveDialog(
+                                                context: context,
+                                                builder: (context) {
+                                                  return Dialog(
+                                                    insetPadding:
+                                                        const EdgeInsets.all(
+                                                            16),
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        16)),
+                                                    child: DetailDialog(
+                                                      item: item,
+                                                      imageUrl:
+                                                          controller.imageUrl,
+                                                    ),
+                                                  );
+                                                });
+                                          },
+                                          child: MoviePortraitCard(
+                                              item: item,
+                                              imageUrl: controller.imageUrl),
+                                        ),
+                                      ),
+                                    );
+                                  }),
                             ),
                           ],
                         )
